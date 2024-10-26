@@ -1,7 +1,7 @@
 pipeline {
     agent { label "" }
     environment {
-              APP_NAME = "java-sample-pipeline"
+              APP_NAME = "java-sample"
     }
 
     stages {
