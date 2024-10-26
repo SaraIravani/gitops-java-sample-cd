@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: java-sample
-          image: SaraIravani/#java-sample-pipeline:1.0.0-9
+          image: SaraIravani/java-sample-ci:1.0.0-30
           resources:
             limits:
               memory: "256Mi"
