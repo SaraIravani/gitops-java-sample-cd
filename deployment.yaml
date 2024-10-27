@@ -16,20 +16,16 @@ spec:
       containers:
         - name: java-sample
           image: sarairavani/java-sample-ci:1.0.0-30
+          ports:
+            - containerPort: 808
           volumeMounts:
         - name: config-volume
           mountPath: /usr/local/tomcat/webapps/ROOT/index.jsp
           subPath: index.jsp
-      volumes:
-      - name: config-volume
-        configMap:
-          name: java-sample-config
           resources:
             limits:
               memory: "256Mi"
               cpu: "500m"
-          ports:
-            - containerPort: 8080
           readinessProbe:
             httpGet:
               path: /
@@ -42,3 +38,7 @@ spec:
               port: 8080
             initialDelaySeconds: 15
             periodSeconds: 20  
+      volumes:
+        - name: config-volume
+          configMap:
+            name: java-sample-config   
