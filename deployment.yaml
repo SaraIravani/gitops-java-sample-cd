@@ -17,7 +17,7 @@ spec:
         - name: java-sample
           image: sarairavani/java-sample-ci:1.0.0-30
           ports:
-            - containerPort: 808
+            - containerPort: 8080
           volumeMounts:
         - name: config-volume
           mountPath: /usr/local/tomcat/webapps/ROOT/index.jsp
