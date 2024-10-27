@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: java-sample-deployment
   namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"  
+    description: "Java Sample Application Deployment"
 spec:
   replicas: 2
   selector:
@@ -16,6 +19,7 @@ spec:
       containers:
         - name: java-sample
           image: sarairavani/java-sample-ci:1.0.0-30
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           volumeMounts:
@@ -26,6 +30,9 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "500m"
+          env:  
+            - name: JAVA_OPTS
+              value: "-Xmx200m -Xms100m"    
           readinessProbe:
             httpGet:
               path: /
