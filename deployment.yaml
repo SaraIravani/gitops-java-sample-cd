@@ -19,9 +19,9 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
-        - name: config-volume
-          mountPath: /usr/local/tomcat/webapps/ROOT/index.jsp
-          subPath: index.jsp
+            - name: config-volume
+              mountPath: /usr/local/tomcat/webapps/ROOT/index.jsp
+              subPath: index.jsp
           resources:
             limits:
               memory: "256Mi"
