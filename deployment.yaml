@@ -16,6 +16,14 @@ spec:
       containers:
         - name: java-sample
           image: sarairavani/java-sample-ci:1.0.0-30
+          volumeMounts:
+        - name: config-volume
+          mountPath: /usr/local/tomcat/webapps/ROOT/index.jsp
+          subPath: index.jsp
+      volumes:
+      - name: config-volume
+        configMap:
+          name: java-sample-config
           resources:
             limits:
               memory: "256Mi"
