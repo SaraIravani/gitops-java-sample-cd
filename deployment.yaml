@@ -22,10 +22,6 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
-          volumeMounts:
-            - name: config-volume
-              mountPath: /usr/local/tomcat/webapps/ROOT/index.jsp
-              subPath: index.jsp
           resources:
             limits:
               memory: "256Mi"
@@ -44,8 +40,4 @@ spec:
               path: /
               port: 8080
             initialDelaySeconds: 15
-            periodSeconds: 20  
-      volumes:
-        - name: config-volume
-          configMap:
-            name: java-sample-config   
+            periodSeconds: 20     
